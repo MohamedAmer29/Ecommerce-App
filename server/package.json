@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.ts",
   "scripts": {
-    "server": "npx tsx watch server.ts"
+    "server": "npx tsx watch src/server.ts"
   },
   "keywords": [],
   "author": "",
