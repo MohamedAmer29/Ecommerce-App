@@ -11,9 +11,14 @@ export const ShopContenxt = createContext({
     return e;
   },
   cartItems: {},
-
   //eslint-disable-next-line
-  updateQuantity: (id: string, size: string, quantity: number) => {},
+  addToCart: (id: string, size: string) => {
+    return { id, size };
+  },
+  //eslint-disable-next-line
+  updateQuantity: (id: string, size: string, quantity: number) => {
+    return { id, size, quantity };
+  },
   getCartCount: () => 1,
   getCartAmount: () => 0,
   token: "",
@@ -21,13 +26,14 @@ export const ShopContenxt = createContext({
   setCartItems: (e: object) => e,
   products: [
     {
+      _id: "",
       name: "",
       description: "",
       price: 0,
       bestseller: false,
       date: Date.now(),
       image: [],
-
+      sizes: [],
       category: "",
       subCategory: "",
     },
