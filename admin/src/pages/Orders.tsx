@@ -5,6 +5,7 @@ import { assets } from "../assets/assets";
 import type { Order } from "../context/Order";
 import currency from "../context/Currency";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 interface Prop {
   token: string;
 }
@@ -17,7 +18,7 @@ const Orders = ({ token }: Prop) => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/v1/api/order/list",
+        backendUrl + "v1/api/order/list",
         {},
         { headers: { token } }
       );
@@ -42,7 +43,7 @@ const Orders = ({ token }: Prop) => {
   ) {
     try {
       await axios.post(
-        "http://localhost:3000/v1/api/order/status",
+        backendUrl + "v1/api/order/status",
         { orderId, status: event.target.value },
         { headers: { token } }
       );

@@ -2,6 +2,8 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { assets } from "../assets/assets";
 import { toast } from "react-toastify";
 import axios from "axios";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 type Props = {
   token: string;
 };
@@ -40,7 +42,7 @@ const Add = ({ token }: Props) => {
       // eslint-disable-next-line
       image4 && formData.append("image4", image4);
       const response = await axios.post(
-        "http://localhost:3000/v1/api/product/add",
+        backendUrl + "v1/api/product/add",
         formData,
         { headers: { token } }
       );
@@ -57,7 +59,6 @@ const Add = ({ token }: Props) => {
       setPrice(0);
       setSizes([]);
       setIsSubmitting(false);
-
 
       //@ts-expect-error aaa
     } catch (error: Error) {

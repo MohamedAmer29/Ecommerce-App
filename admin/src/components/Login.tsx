@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, type FormEvent } from "react";
 import { toast } from "react-toastify";
 
-// const backendUrl = import.meta.env.VITE_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 type Props = {
   setToken: (token: string) => void;
 };
@@ -14,7 +14,7 @@ const Login = ({ setToken }: Props) => {
     try {
       e.preventDefault();
 
-      const response = await axios.post("http://localhost:3000/v1/user/admin", {
+      const response = await axios.post(backendUrl+"v1/user/admin", {
         email,
         password,
       });
